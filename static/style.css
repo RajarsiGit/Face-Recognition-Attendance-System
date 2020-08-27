@@ -127,7 +127,7 @@ input[type=text], input[type=password] {
 }
 .loader {
     position: absolute;
-    border: 25px solid white;
+    border: 25px solid #eeeeee;
     border-radius: 50%;
     border-top: 25px solid #009688;
     border-bottom: 25px solid #009688;

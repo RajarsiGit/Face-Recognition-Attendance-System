@@ -4,17 +4,29 @@ $(document).ready(function(){
   let canvas = document.querySelector("#myCanvas");
   let ctx = canvas.getContext('2d');
   video.style = "display: none !important;"
-  ctx.canvas.width = 240;
-  ctx.canvas.height = 180;
   var localMediaStream = null;
   var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
   function sendSnapshot() {
     if (!localMediaStream) {
       return;
     }
-    ctx.drawImage(video, 0, 0, 1280, 720, 0, 0, 240, 180);
+    function myFunction(x) {
+      if (x.matches) {
+        ctx.canvas.width = 234;
+        ctx.canvas.height = 416;
+        ctx.drawImage(video, 0, 0, 720, 1280, 0, 0, 234, 416);
+      } else {
+        ctx.canvas.width = 416;
+        ctx.canvas.height = 234;
+        ctx.drawImage(video, 0, 0, 1280, 720, 0, 0, 416, 234);
+      }
+    }
+    var x = window.matchMedia("(max-width: 600px)")
+    myFunction(x);
+    x.addListener(myFunction);
     let dataURL = canvas.toDataURL('image/jpeg');
     socket.emit('input', dataURL);
+    console.log(video.videoHeight)
   }
   socket.on("message", function(data) {
     if(data.msg == 'Done') {
@@ -25,8 +37,8 @@ $(document).ready(function(){
   var constraints = {
     audio: false,
     video: {
-      width: {max: 1280},
-      height: {max: 720}
+      width: {exact: 1280},
+      height: {exact: 720}
     }
   };
   navigator.mediaDevices.getUserMedia(constraints)

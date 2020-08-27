@@ -25,9 +25,8 @@ class TestData:
             roi_gray = gray[y:y + h, x:x + w]
             cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0, 0), 2)
             id, conf = self.recognizer.predict(roi_gray)
-            print(id, conf)
             if conf < 105:
-                if id == 1:
+                '''if id == 1:
                     id='Souvik Ghosh'
                     if str(id) not in self.attendance:
                         self.filename = xlwrite.output('attendance', 'class1', 1, id, 'yes')
@@ -46,12 +45,12 @@ class TestData:
                     id = 'Ki'
                     if str(id) not in self.attendance:
                         self.filename = xlwrite.output('attendance', 'class1', 4, id, 'yes')
-                        self.attendance[str(id)] = str(id)
+                        self.attendance[str(id)] = str(id)'''
             else:
-                id = 'Unknown, can not recognize'
+                id = 'Spoof Detected'
                 flag = flag + 1
                 cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
-                cv2.putText(img, "Spoof Detected", (x, y-10), self.font, 0.55, (120, 255, 120), 1)
+                cv2.putText(img, str(id), (x, y-10), self.font, 0.55, (120, 255, 120), 1)
                 break
 
             cv2.putText(img, str(id), (x, y-10), self.font, 0.55, (120, 255, 120), 1)
