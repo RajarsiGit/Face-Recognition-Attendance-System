@@ -6,19 +6,21 @@ $(document).ready(function(){
   video.style = "display: none !important;"
   var localMediaStream = null;
   var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+  const h = 216;
+  const w = 384;
   function sendSnapshot() {
     if (!localMediaStream) {
       return;
     }
     function myFunction(x) {
       if (x.matches) {
-        ctx.canvas.width = 234;
-        ctx.canvas.height = 416;
-        ctx.drawImage(video, 0, 0, 720, 1280, 0, 0, 234, 416);
+        ctx.canvas.width = h;
+        ctx.canvas.height = w;
+        ctx.drawImage(video, 0, 0, 720, 1280, 0, 0, h, w);
       } else {
-        ctx.canvas.width = 416;
-        ctx.canvas.height = 234;
-        ctx.drawImage(video, 0, 0, 1280, 720, 0, 0, 416, 234);
+        ctx.canvas.width = w;
+        ctx.canvas.height = h;
+        ctx.drawImage(video, 0, 0, 1280, 720, 0, 0, w, h);
       }
     }
     var x = window.matchMedia("(max-width: 600px)")
@@ -47,7 +49,7 @@ $(document).ready(function(){
     localMediaStream = stream;
     setInterval(function () {
       sendSnapshot();
-    }, 60);
+    }, 50);
   })
   .catch(function(error) {
     console.log(error);

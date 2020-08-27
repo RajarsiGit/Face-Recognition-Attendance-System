@@ -11,7 +11,7 @@ from test_dataset import TestData
 
 main = Blueprint('main', __name__)
 
-secret_key = str(os.urandom(15))
+secret_key = str(os.urandom(20))
 
 app = Flask(__name__)
 app.config['TESTING'] = False
