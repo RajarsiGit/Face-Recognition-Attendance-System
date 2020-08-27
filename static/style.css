@@ -1,0 +1,149 @@
+body
+{
+	font-family: "Segoe UI", Arial, sans-serif;
+	background-color: #ffffff;
+}
+h1
+{
+	background-color: #009688;
+	width: 95%;
+	max-width: 600px;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-top: 0;
+	text-align: center;
+	font-size: 30px;
+	padding: 10px;
+}
+h3
+{
+	color: black;
+	font-size: 20px;
+	margin-top: 3px;
+    text-align: center;
+    width: 120px;
+    margin: 100px;
+    padding: 65px;
+}
+.container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+}
+form {
+    display: inline-block;
+	border: 3px solid #f1f1f1;
+	width: 95%;
+	max-width: 600px;
+	margin: auto;
+	left: 50%;
+	right: 50%;
+    padding: 20px 8px;
+}
+label{
+	font-family: inherit;
+	font-size: 14px;
+    font-weight: bold;
+    margin: 20px 20px 20px 20px;
+    padding: 12px 16px;
+    float: left;
+}
+input[type=text], input[type=password] {
+	font-family: inherit;
+	font-size: 14px;
+	width: 60%;
+	padding: 12px 20px;
+	margin: 20px 5% 20px 0%;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	float: right;
+}
+#submit {
+	background-color: #009688;
+	width: 50%;
+    margin: 20px 5% 20px 0%;
+	padding: 12px 16px;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	cursor: pointer;
+    border-radius: 5px;
+    float: right;
+}
+#submit:hover {
+	background-color: #00b3a1;
+	border-width: 1px;
+	border-color: #009688;
+}
+#head{
+	background-color: #009688;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-top: 0;
+	text-align: center;
+	font-size: 30px;
+	padding: 10px;
+}
+#title{
+	display: inline-block;
+	width: 80%;
+	background-color: transparent;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 0;
+}
+#buttonClose {
+	background-color: #EF5350;
+	height: 35px;
+	width: 35px;
+	float: right;
+	padding: 0;
+	margin-top: 0px;
+	margin-right: 0px;
+	font-family: none;
+	font-size: 20px;
+	line-height: 0.5;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+#buttonClose:hover {
+	background-color: #f2706e;
+	border-width: 1px;
+	border-color: #EF5350;
+}
+#video {
+    display: flex;
+	margin: auto;
+	width: 100%;
+}
+.loader {
+    position: absolute;
+    border: 25px solid white;
+    border-radius: 50%;
+    border-top: 25px solid #009688;
+    border-bottom: 25px solid #009688;
+    width: 120px;
+    height: 120px;
+    margin: 100px;
+    background: rgba(255, 255, 255, 0);
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    z-index: 5;
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
